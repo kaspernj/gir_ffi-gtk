@@ -34,11 +34,27 @@ tv.append_column(col)
 
 
 #Add rows.
-iter = ls.append
-ls.set_value(iter, 0, "Kasper")
+iter_kasper = ls.append
+ls.set_value(iter_kasper, 0, "Kasper")
 
-iter = ls.append
-ls.set_value(iter, 0, "Christina")
+iter_christina = ls.append
+ls.set_value(iter_christina, 0, "Christina")
+
+
+#Mark the last added row as selected.
+tv.selection.select_iter(iter_christina)
+
+
+#Check if a row is selected by iter.
+if tv.selection.iter_is_selected(iter_christina)
+  puts "Christina is selected."
+else
+  puts "Christina is not selected."
+end
+
+
+#Get selected rows.
+sel = tv.selection.selected_rows
 
 
 win.add tv
