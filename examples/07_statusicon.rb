@@ -27,4 +27,11 @@ si.signal_connect("popup-menu") do
   menu.popup
 end
 
+si.signal_connect("scroll-event") do |sicon, scroll_event|
+  #Skip smooth which always gets called before the actual event.
+  if scroll_event.direction.to_s != "smooth"
+    puts "Scroll! (direction: #{scroll_event.direction})"
+  end
+end
+
 Gtk.main
